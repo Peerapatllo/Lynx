@@ -11,9 +11,9 @@ local comma = function(arr)
 end
 
 local reward_list = function(gem_get, gold_get)
-	local get_gold = " Gems <:gem_av:1282972514342928385>"
-	local get_gem = " Gold <:gold_av:1293291288971706503>"
-	return "<a:Dot:1147531692916088892>** " ..gem_get .."**".. get_gem .. "\n" .. "<a:Dot:1147531692916088892>** ".. gold_get .."**".. get_gold
+	local get_gold = " Gold <:gold_av:1293291288971706503>"
+	local get_gem = " Gems <:gem_av:1282972514342928385>"
+	return "<a:Dot:1147531692916088892> + " ..gem_get .."".. get_gem .. "\n" .. "<a:Dot:1147531692916088892> + ".. gold_get .."".. get_gold
 end
 
 local reward_item = function(items)
@@ -50,6 +50,13 @@ local send_webhookINDYX = function()
 	local Stagename = localplayer.PlayerGui:FindFirstChild("EndScreen"):FindFirstChild("Container"):FindFirstChild("EndScreen"):FindFirstChild("Main"):FindFirstChild("StageInfo"):FindFirstChild("Main"):FindFirstChild("StageName").Text
 	local ActnameX = localplayer.PlayerGui:FindFirstChild("EndScreen"):FindFirstChild("Container"):FindFirstChild("EndScreen"):FindFirstChild("Main"):FindFirstChild("StageInfo"):FindFirstChild("Main"):FindFirstChild("ActName").Text
 	local Wavemap = localplayer.PlayerGui:FindFirstChild("HUD"):FindFirstChild("Map"):FindFirstChild("WavesAmount").Text
+	local MapType = localplayer.PlayerGui:FindFirstChild("Guides"):FindFirstChild("List"):FindFirstChild("StageInfo"):FindFirstChild("StageType").Text
+	local StageAct = localplayer.PlayerGui:FindFirstChild("Guides"):FindFirstChild("List"):FindFirstChild("StageInfo"):FindFirstChild("StageName").Text
+
+	--local Stagename2 = localplayer.PlayerGui:FindFirstChild("HUD"):FindFirstChild("StageFrame"):FindFirstChild("StageName").Text
+	--local ActnameX2 = localplayer.PlayerGui:FindFirstChild("HUD"):FindFirstChild("StageFrame"):FindFirstChild("ActName").Text
+	--local Gemdrop2 = localplayer.PlayerGui:FindFirstChild("EndScreen"):FindFirstChild("Container"):FindFirstChild("EndScreen"):FindFirstChild("Main"):FindFirstChild("StageRewards"):FindFirstChild("Main"):FindFirstChild("Gems"):FindFirstChild("Holder"):FindFirstChild("Main"):FindFirstChild("Amount").Text
+	--local Golddrop2 = localplayer.PlayerGui:FindFirstChild("EndScreen"):FindFirstChild("Container"):FindFirstChild("EndScreen"):FindFirstChild("Main"):FindFirstChild("StageRewards"):FindFirstChild("Main"):FindFirstChild("Gold"):FindFirstChild("Holder"):FindFirstChild("Main"):FindFirstChild("Amount").Text
 
 	local Gemdrop = localplayer.PlayerGui:FindFirstChild("HUD"):FindFirstChild("Map"):FindFirstChild("StageRewards"):FindFirstChild("Gems"):FindFirstChild("Amount").Text
 	local Golddrop = localplayer.PlayerGui:FindFirstChild("HUD"):FindFirstChild("Map"):FindFirstChild("StageRewards"):FindFirstChild("Coins"):FindFirstChild("Amount").Text
@@ -59,9 +66,11 @@ local send_webhookINDYX = function()
 	XFarm = "# <a:loading:1147559049160822874> <:f1:1135448982051639337><:f2:1135448984178135050><:f3:1135448989693653032><:f4:1135448994974285915><:f5:1135448997260181564> <a:loading:1147559049160822874>"
 	Playerstats = ("<a:d4:1113801645931896912>**Name:** ||%s||<a:d5:1113801649014718545>\n<a:Dot:1147531692916088892>%s <a:mee6lvlup:1123179161054355527>\n<a:Dot:1147531692916088892>**Gems:** %s <:gem_av:1282972514342928385>\n<a:Dot:1147531692916088892>**Gold:** %s <:gold_av:1293291288971706503>"):format(name_player,level_player,comma(localplayer:GetAttribute("Gems")),comma(localplayer:GetAttribute("Gold")))
   	XGameStats = "# <a:stockup:1123197731876393010> <:g1:1135449004927369216><:g2:1135449008240857189><:g3:1135449010287673374><:g4:1135449013898977390> <a:stockup:1123197731876393010>"
-  	Mapstats = "<a:Dot:1147531692916088892>**Map:** "..Stagename.. " ("..ActnameX..") - "..status_get.."\n<a:Dot:1147531692916088892>**Wave:** "..Wavemap.." - ( "..Timermap.." )"
+  	Mapstats = "<a:Dot:1147531692916088892>**Mode:** "..MapType.. " ("..StageAct..") - "..status_get.."\n<a:Dot:1147531692916088892>**Wave:** "..Wavemap.." - ( "..Timermap.." )"
+  	--Mapstats2 = "<a:Dot:1147531692916088892>**Map:** "..Stagename2.. " ("..ActnameX2..") - "..status_get.."\n<a:Dot:1147531692916088892>**Wave:** "..Wavemap.." - ( "..Timermap.." )"
   	XItem = "# <a:fight:1129761802100682862> <:i1:1135449015757045840><:i2:1135449019024408587><:i3:1135449022392442900><:i4:1135449024107909203> <a:fight:1129761802100682862>"
-  	Itemstats = ("<a:Dot:1147531692916088892> "..Gemdrop.." <:gem_av:1282972514342928385>\n<a:Dot:1147531692916088892> "..Golddrop.." <:gold_av:1293291288971706503>\n%s"):format(reward_item(items))
+	Itemstats = ("%s \n%s"):format(reward_list(gem,gold),reward_item(items))
+	--Itemstats2 = ("<a:Dot:1147531692916088892> "..Gemdrop2.." <:gem_av:1282972514342928385>\n<a:Dot:1147531692916088892> "..Golddrop2.." <:gold_av:1293291288971706503>\n%s"):format(reward_item(items))
 
 	local data = {
     ["content"] ="",
@@ -72,14 +81,14 @@ local send_webhookINDYX = function()
         ["thumbnail"] = {
           ['url'] = thumbnails_avatar.data[1].imageUrl,
         },
-				["color"] = 10181046,
+		["color"] = 10181046,
         ["description"] = ""
         ..XFarm.. "\n"
         ..Playerstats.. "\n"
         ..XGameStats.. "\n"
-        ..Mapstats.. "\n"
+		..Mapstats.. "\n"
         ..XItem.. "\n"
-        ..Itemstats.. "\n",
+		..Itemstats.. "\n",
         ["author"] = {
           ["name"] = "Anime Vanguards",
           ["icon_url"] = "https://img.pic.in.th/oie_27168246JMfoaRb.gif"
@@ -103,8 +112,8 @@ local send_webhookINDYX = function()
 end
 
 game:GetService("ReplicatedStorage").Networking.EndScreen.ShowEndScreenEvent.OnClientEvent:Connect(function(data,...)
-	gold = (data.Status == "Finished") and data.Rewards["Currencies"]["Gold"]["Amount"] or "Failed."
-	gem = (data.Status == "Finished") and data.Rewards["Currencies"]["Gems"]["Amount"] or "Failed."
+	gem = (data.Status == "Finished") and data.Rewards["Currencies"]["Gems"]["Amount"] or "0 "
+	gold = (data.Status == "Finished") and data.Rewards["Currencies"]["Gold"]["Amount"] or "0 "
 	items = (data.Status == "Finished") and data.Rewards["Items"] or {["Item Drop"] = {["Amount"] = 0}}
 	status_get = data.Status time_taken_get = data.TimeTaken
 	send_webhookINDYX()
