@@ -1,4 +1,4 @@
-local N = "Fiscostomath"
+local N = "YonasXep"
 local P = game:GetService("Players")
 --print(game:GetService("Players").LocalPlayer.PlayerGui.Data.Pets[tostring(game.Players.LocalPlayer:GetAttribute("HoldUID"))]:GetAttribute("T"))
 --setclipboard(game:GetService("Players").LocalPlayer.PlayerGui.Data.Pets[tostring(game.Players.LocalPlayer:GetAttribute("HoldUID"))]:GetAttribute("T"))
