@@ -46,7 +46,7 @@ for _, v in pairs(workspace.Pets:GetChildren()) do
 			if not v.RootPart:FindFirstChild("GUI/BigPetGUI") then
 				local petspeed = v.RootPart["GUI/IdleGUI"].Speed.Text
 				local number = tonumber((petspeed:gsub("%D", "")))
-				if number and number >= 400000 then
+				if number and number >= 500000 then
 					table.insert(deletePets, v.Name)
 				end
 			end
