@@ -47,10 +47,9 @@ for _, v in pairs(workspace.Pets:GetChildren()) do
 				local petspeed = v.RootPart["GUI/IdleGUI"].Speed.Text
 				local number = tonumber((petspeed:gsub("%D", "")))
 				if number and number >= 500000 then
-
+					table.insert(deletePets, v.Name)
 				end
 			end
-			table.insert(deletePets, v.Name)
 		end
 	end)
 end
@@ -60,7 +59,7 @@ for _, petName in ipairs(deletePets) do
 end
 
 
-local Blacklist = {"Seaturtle", "Butterflyfish"}
+local Blacklist = {"Wolf_E1", "Kangroo_E1", "Rhino_E1", "Lion_E1", "Gorilla_E1", "Seaturtle", "Okapi", "Needlefish", "Panther", "Butterflyfish"}
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players['YonasXep'].Character.HumanoidRootPart.CFrame
 task.wait(1)
 for _,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Data.Pets:GetChildren()) do
