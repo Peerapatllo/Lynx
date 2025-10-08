@@ -69,6 +69,5 @@ for _,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Data.Pets:GetC
 		game.ReplicatedStorage.Remote.GiftRE:FireServer(game.Players['YonasXep'])
 		task.wait(0.3)
 	end
-
 end
 game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId)
