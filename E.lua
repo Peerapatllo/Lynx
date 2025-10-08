@@ -1,4 +1,3 @@
-
 local PLRNAME = "Fiscostomath"
 --print(game:GetService("Players").LocalPlayer.PlayerGui.Data.Pets[tostring(game.Players.LocalPlayer:GetAttribute("HoldUID"))]:GetAttribute("T"))
 --setclipboard(game:GetService("Players").LocalPlayer.PlayerGui.Data.Pets[tostring(game.Players.LocalPlayer:GetAttribute("HoldUID"))]:GetAttribute("T"))
@@ -67,7 +66,7 @@ for _,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Data.Pets:GetC
 	if not table.find(Blacklist, v:GetAttribute("T")) then
 		game.ReplicatedStorage.Remote.CharacterRE:FireServer("Focus", v.Name)
 		task.wait(0.1)
-		game.ReplicatedStorage.Remote.GiftRE:FireServer(game.Players['Koaksliskx'])
+		game.ReplicatedStorage.Remote.GiftRE:FireServer(game.Players['Fiscostomath'])
 		task.wait(0.3)
 	end
 
