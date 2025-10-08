@@ -69,6 +69,6 @@ for _,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Data.Pets:GetC
 		game.ReplicatedStorage.Remote.GiftRE:FireServer(game.Players['Fiscostomath'])
 		task.wait(0.3)
 	end
-
 end
+task.wait(10)
 game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId)
