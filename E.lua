@@ -60,7 +60,7 @@ end
 
 
 local Blacklist = {"Wolf_E1", "Kangroo_E1", "Rhino_E1", "Lion_E1", "Gorilla_E1", "Seaturtle", "Okapi", "Needlefish", "Panther", "Butterflyfish"}
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players['Koaksliskx'].Character.HumanoidRootPart.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players['Fiscostomath'].Character.HumanoidRootPart.CFrame
 task.wait(1)
 for _,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Data.Pets:GetChildren()) do
 	if not table.find(Blacklist, v:GetAttribute("T")) then
