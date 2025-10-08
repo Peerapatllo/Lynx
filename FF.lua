@@ -58,8 +58,8 @@ for _, petName in ipairs(deletePets) do
 	game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("CharacterRE"):FireServer("Del", petName)
 end
 
-
-local Blacklist = {"Wolf_E1", "Kangroo_E1", "Rhino_E1", "Lion_E1", "Gorilla_E1", "Seaturtle", "Okapi", "Needlefish", "Panther", "Butterflyfish"}
+local Blacklist = {"Seaturtle", "Butterflyfish"}
+--local Blacklist = {"Wolf_E1", "Kangroo_E1", "Rhino_E1", "Lion_E1", "Gorilla_E1", "Seaturtle", "Okapi", "Needlefish", "Panther", "Butterflyfish"}
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players['YonasXep'].Character.HumanoidRootPart.CFrame
 task.wait(1)
 for _,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Data.Pets:GetChildren()) do
