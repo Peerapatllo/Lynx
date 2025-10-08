@@ -66,9 +66,9 @@ task.wait(1)
 for _,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Data.Pets:GetChildren()) do
 	if not table.find(Blacklist, v:GetAttribute("T")) then
 		game:GetService("ReplicatedStorage").Remote.CharacterRE:FireServer("Focus", v.Name)
-		task.wait(0.1)
+		task.wait(0.2)
     	game:GetService("ReplicatedStorage").Remote.GiftRE:FireServer(P:WaitForChild(PLRNAME))
-		task.wait(0.3)
+		task.wait(0.5)
 	end
 end
 game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId)
