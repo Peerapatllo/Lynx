@@ -49,7 +49,6 @@ for _, v in pairs(workspace.Pets:GetChildren()) do
 					table.insert(deletePets, v.Name)
 				end
 			end
-			table.insert(deletePets, v.Name)
 		end
 	end)
 end
