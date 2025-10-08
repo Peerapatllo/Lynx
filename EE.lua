@@ -1,4 +1,5 @@
-local PLRNAME = "Fiscostomath"
+local N = "Fiscostomath"
+local P = game:GetService("Players")
 --print(game:GetService("Players").LocalPlayer.PlayerGui.Data.Pets[tostring(game.Players.LocalPlayer:GetAttribute("HoldUID"))]:GetAttribute("T"))
 --setclipboard(game:GetService("Players").LocalPlayer.PlayerGui.Data.Pets[tostring(game.Players.LocalPlayer:GetAttribute("HoldUID"))]:GetAttribute("T"))
 
@@ -61,12 +62,12 @@ end
 
 local Blacklist = {"Wolf_E1", "Kangroo_E1", "Rhino_E1", "Lion_E1", "Gorilla_E1", "Seaturtle", "Okapi", "Needlefish", "Panther", "Butterflyfish"}
 task.wait(1)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players['Fiscostomath'].Character.HumanoidRootPart.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P[N].Character.HumanoidRootPart.CFrame
 for _,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Data.Pets:GetChildren()) do
 	if not table.find(Blacklist, v:GetAttribute("T")) then
 		game.ReplicatedStorage.Remote.CharacterRE:FireServer("Focus", v.Name)
 		task.wait(0.1)
-		game.ReplicatedStorage.Remote.GiftRE:FireServer(game.Players:WaitForChild['Fiscostomath'])
+		game.ReplicatedStorage.Remote.GiftRE:FireServer(P:WaitForChild(N))
 		task.wait(0.3)
 	end
 end
